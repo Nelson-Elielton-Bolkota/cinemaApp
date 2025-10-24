@@ -1,0 +1,83 @@
+
+
+  html, body {
+  height: 100%;
+  width: 100%;
+  margin: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-family: "Segoe UI", Arial, sans-serif;
+
+  /* Gradiente vertical: topo -> base */
+  background: linear-gradient(to bottom, #484558, #26252D);
+
+  /* Transição suave se mudar de cor via hover ou JS */
+  transition: background 1s ease;
+}
+
+
+  .login-card {
+    border-radius: 20px;
+    padding: 40px 20px;
+    width: 90%;
+    max-width: 400px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  /* Logo */
+  .login-logo {
+    width: 60%;
+    max-width: 150px;
+    height: auto;
+    margin-bottom: 40px;
+  }
+
+  /* Botões */
+  .login-button {
+    width: 100%;
+    padding: 15px;
+    margin-bottom: 15px;
+    border-radius: 50px;
+    font-size: 16px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    border: none;
+  }
+
+  .login-button svg {
+    margin-right: 10px;
+  }
+
+  .email {
+    background-color: #e0e0e0;
+    color: #000;
+  }
+
+  .apple {
+    background-color: #000;
+    color: #fff;
+  }
+
+  .login-button:hover {
+    opacity: 0.9;
+  }
+
+  /* Responsividade */
+  @media (max-width: 500px) {
+    .login-card {
+      padding: 30px 15px;
+    }
+    .login-logo {
+      width: 70%;
+    }
+    .login-button {
+      font-size: 14px;
+      padding: 12px;
+    }
+  }
