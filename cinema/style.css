@@ -44,19 +44,33 @@ html, body {
   border: none;
 }
 
+.login-button:hover {
+  transform: scale(1.03);
+  opacity: 0.95;
+}
+
+/* Botão de e-mail */
 .email {
   background-color: #e0e0e0;
   color: #000;
 }
 
+/* Botão da Apple (mesmo formato dos outros) */
 .apple {
   background-color: #000;
   color: #fff;
 }
+.email{
+  background-color: #f7f0f0;
+}
 
-.login-button:hover {
-  transform: scale(1.03);
-  opacity: 0.95;
+.apple i {
+  font-size: 18px;
+  margin-right: 8px;
+  color: #fff;
+}
+.novo{
+  background-color: rgb(233, 34, 34);
 }
 
 /* Responsividade */
