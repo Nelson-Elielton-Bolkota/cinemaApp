@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Escolher Filme</title>
+  <link rel="stylesheet" href="pagina2.css">
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" rel="stylesheet">
+</head>
+
+<body>
+  <!-- Botão de voltar -->
+  <button class="voltar-btn" onclick="window.location.href='page1.html'">
+    <span class="material-symbols-outlined">arrow_back</span> Voltar
+  </button>
+
+  <div class="container">
+    <h1>Pesquisar Filmes</h1>
+
+    <!-- Barra de pesquisa -->
+    <input type="text" id="searchInput" placeholder="Digite o nome do filme..." onkeyup="filtrarFilmes()">
+
+    <!-- Lista de filmes -->
+    <div id="filmesContainer" class="filmes-container">
+      <div class="filme" onclick="abrirAssentos('Titanique')"><img src="imagens/filme1.jpg"><p>Titanique</p></div>
+      <div class="filme" onclick="abrirAssentos('The Dark Knight')"><img src="imagens/filme2.jpg"><p>The Dark Knight</p></div>
+      <div class="filme" onclick="abrirAssentos('Avatar')"><img src="imagens/filme3.jpg"><p>Avatar</p></div>
+      <div class="filme" onclick="abrirAssentos('Deadpool')"><img src="imagens/filme4.jpg"><p>Deadpool</p></div>
+      <div class="filme" onclick="abrirAssentos('Vingadores')"><img src="imagens/filme5.jpg"><p>Vingadores</p></div>
+      <div class="filme" onclick="abrirAssentos('Us')"><img src="imagens/filme6.jpg"><p>Us</p></div>
+      <div class="filme" onclick="abrirAssentos('Barbie')"><img src="imagens/filme7.jpg"><p>Barbie</p></div>
+      <div class="filme" onclick="abrirAssentos('Guardiões da Galáxia 2')"><img src="imagens/filme8.jpg"><p>Guardiões da Galáxia 2</p></div>
+      <div class="filme" onclick="abrirAssentos('Skyline')"><img src="imagens/filme9.jpg"><p>Skyline</p></div>
+      <div class="filme" onclick="abrirAssentos('Cidade de Deus')"><img src="imagens/filme10.jpg"><p>Cidade de Deus</p></div>
+      <div class="filme" onclick="abrirAssentos('Pânico 6')"><img src="imagens/filme11.jpg"><p>Pânico 6</p></div>
+      <div class="filme" onclick="abrirAssentos('Ben 10')"><img src="imagens/filme12.jpg"><p>Ben 10</p></div>
+    </div>
+  </div>
+
+  <!-- Modal dos assentos -->
+  <div id="modalAssentos" class="modal">
+    <div class="modal-content">
+      <span class="fechar" onclick="fecharAssentos()">&times;</span>
+      <h2 id="tituloFilme"></h2>
+
+      <div class="assentos-container" id="assentosContainer"></div>
+
+      <button class="confirmar-btn" onclick="confirmarAssento()">Confirmar</button>
+    </div>
+  </div>
+
+  <script>
+    // --- FILTRAR FILMES ---
+    function filtrarFilmes() {
+      const input = document.getElementById('searchInput');
+      const filtro = input.value.toLowerCase();
+      const filmes = document.getElementsByClassName('filme');
+
+      for (let i = 0; i < filmes.length; i++) {
+        const nome = filmes[i].getElementsByTagName('p')[0].textContent.toLowerCase();
+        filmes[i].style.display = nome.includes(filtro) ? '' : 'none';
+      }
+    }
+
+    // --- ABRIR MODAL DE ASSENTOS ---
+    function abrirAssentos(nomeFilme) {
+      document.getElementById("tituloFilme").textContent = "Assentos disponíveis para: " + nomeFilme;
+      const modal = document.getElementById("modalAssentos");
+      const container = document.getElementById("assentosContainer");
+      container.innerHTML = "";
+
+      // Cria 40 assentos
+      for (let i = 1; i <= 40; i++) {
+        const assento = document.createElement("div");
+        assento.classList.add("assento");
+        assento.textContent = i;
+
+        // Clicar → fica vermelho (ocupado)
+        assento.onclick = function () {
+          if (!this.classList.contains("ocupado")) {
+            this.classList.add("ocupado");
+            this.onclick = null; // bloqueia clique novamente
+          }
+        };
+
+        container.appendChild(assento);
+      }
+
+      modal.style.display = "flex";
+    }
+
+    // --- FECHAR MODAL ---
+    function fecharAssentos() {
+      document.getElementById("modalAssentos").style.display = "none";
+    }
+
+    // --- CONFIRMAR ASSENTOS ---
+    function confirmarAssento() {
+      const ocupados = document.querySelectorAll(".assento.ocupado");
+      const numeros = Array.from(ocupados).map(a => a.textContent);
+      if (numeros.length === 0) {
+        alert("Escolha pelo menos um assento!");
+        return;
+      }
+      alert("Assentos reservados: " + numeros.join(", "));
+      fecharAssentos();
+    }
+
+    // Fechar modal clicando fora
+    window.onclick = function (event) {
+      const modal = document.getElementById("modalAssentos");
+      if (event.target === modal) modal.style.display = "none";
+    }
+  </script>
+</body>
+</html>

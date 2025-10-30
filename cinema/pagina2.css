@@ -1,0 +1,184 @@
+/* --- ESTILO GERAL --- */
+body {
+  font-family: 'Montserrat', sans-serif;
+  background-color: #121212;
+  color: #fff;
+  margin: 0;
+  padding: 0;
+}
+
+.container {
+  width: 90%;
+  max-width: 1000px;
+  margin: 80px auto;
+  text-align: center;
+}
+
+h1 {
+  color: #f5c518;
+  margin-bottom: 20px;
+}
+
+/* --- BOTÃO VOLTAR --- */
+.voltar-btn {
+  position: fixed;
+  top: 20px;
+  left: 20px;
+  background: none;
+  border: 2px solid #f5c518;
+  color: #f5c518;
+  font-weight: 600;
+  padding: 8px 15px;
+  border-radius: 25px;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  transition: all 0.3s ease;
+  z-index: 2000;
+}
+
+.voltar-btn:hover {
+  background-color: #f5c518;
+  color: #121212;
+}
+
+/* --- BARRA DE PESQUISA --- */
+#searchInput {
+  width: 80%;
+  max-width: 400px;
+  padding: 10px 15px;
+  font-size: 1em;
+  border: none;
+  border-radius: 20px;
+  outline: none;
+  margin-bottom: 30px;
+  transition: all 0.3s ease;
+}
+
+#searchInput:focus {
+  box-shadow: 0 0 8px #f5c518;
+}
+
+/* --- FILMES --- */
+.filmes-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 20px;
+}
+
+.filme {
+  background-color: #1e1e1e;
+  border-radius: 10px;
+  overflow: hidden;
+  width: 150px;
+  text-align: center;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  cursor: pointer;
+}
+
+.filme img {
+  width: 100%;
+  height: 220px;
+  object-fit: cover;
+  border-bottom: 2px solid #f5c518;
+}
+
+.filme p {
+  margin: 10px 0;
+  font-weight: 600;
+}
+
+.filme:hover {
+  transform: scale(1.05);
+  box-shadow: 0 0 10px #f5c518;
+}
+
+/* --- MODAL --- */
+.modal {
+  display: none;
+  position: fixed;
+  z-index: 3000;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.85);
+  justify-content: center;
+  align-items: center;
+}
+
+.modal-content {
+  background-color: #1e1e1e;
+  padding: 30px;
+  border-radius: 10px;
+  width: 90%;
+  max-width: 600px;
+  text-align: center;
+  color: #fff;
+  position: relative;
+}
+
+.fechar {
+  position: absolute;
+  right: 15px;
+  top: 10px;
+  font-size: 24px;
+  cursor: pointer;
+  color: #f5c518;
+  transition: 0.3s;
+}
+
+.fechar:hover {
+  color: #fff;
+}
+
+/* --- ASSENTOS --- */
+.assentos-container {
+  display: grid;
+  grid-template-columns: repeat(8, 1fr);
+  gap: 10px;
+  margin: 20px 0;
+  justify-items: center;
+}
+
+.assento {
+  width: 35px;
+  height: 35px;
+  background-color: #333;
+  color: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.assento:hover {
+  background-color: #666;
+}
+
+/* Assento ocupado */
+.assento.ocupado {
+  background-color: #e50914; /* vermelho */
+  color: #fff;
+  cursor: not-allowed;
+}
+
+/* --- BOTÃO CONFIRMAR --- */
+.confirmar-btn {
+  background-color: #f5c518;
+  color: #121212;
+  font-weight: 600;
+  border: none;
+  padding: 10px 25px;
+  border-radius: 25px;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.confirmar-btn:hover {
+  background-color: #ffe066;
+}

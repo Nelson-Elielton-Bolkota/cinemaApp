@@ -1,0 +1,90 @@
+body {
+  font-family: 'Montserrat', sans-serif;
+  background-color: #121212;
+  color: #fff;
+  margin: 0;
+  padding: 0;
+  text-align: center;
+}
+
+.container {
+  width: 90%;
+  max-width: 900px;
+  margin: 60px auto;
+}
+
+h1 {
+  color: #f5c518;
+  margin-bottom: 40px;
+}
+
+h2 {
+  color: #fff;
+  margin-bottom: 20px;
+  border-bottom: 2px solid #f5c518;
+  display: inline-block;
+  padding-bottom: 5px;
+}
+
+/* Cartões de ingressos e combos */
+.card {
+  background-color: #1e1e1e;
+  margin: 15px auto;
+  padding: 20px;
+  border-radius: 12px;
+  width: 80%;
+  max-width: 500px;
+  transition: all 0.3s ease;
+  cursor: pointer;
+}
+
+.card:hover {
+  background-color: #333;
+  box-shadow: 0 0 15px #f5c518;
+}
+
+.card h3 {
+  margin-bottom: 10px;
+  font-weight: 600;
+  color: #f5c518;
+}
+
+.card p {
+  font-size: 1.2em;
+}
+
+/* Botão voltar */
+.voltar-btn {
+  margin-top: 40px;
+  background: none;
+  border: 2px solid #f5c518;
+  color: #f5c518;
+  font-weight: 600;
+  padding: 10px 25px;
+  border-radius: 25px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.voltar-btn:hover {
+  background-color: #f5c518;
+  color: #121212;
+}
+
+.voltar-btn {
+  position: fixed;
+  top: 20px;
+  left: 20px;
+  background: none;
+  border: 2px solid #f5c518;
+  color: #f5c518;
+  font-weight: 600;
+  padding: 8px 15px;
+  border-radius: 25px;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  transition: all 0.3s ease;
+  z-index: 2000;
+}
